@@ -2,21 +2,13 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import QuestionCard from "./components/QuestionCard";
 import { Routes, Route } from "react-router-dom";
+import HomePage from "./views/HomePage";
 export default function App() {
     return (
         <div>
             <Navbar />
             <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <div className="max-w-4xl mx-auto">
-                            <QuestionCard />
-                            <QuestionCard />
-                            <QuestionCard />
-                        </div>
-                    }
-                />
+                <Route path="/" element={<HomePage />} />
             </Routes>
             <Routes>
                 <Route
