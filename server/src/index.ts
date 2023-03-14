@@ -25,14 +25,13 @@ const questionSchema = new mongoose.Schema(
 
 const Questions = mongoose.model("questions", questionSchema);
 app.get("/questions", async (req, res) => {
-    // await Questions.insertMany([
-    //     { title: "första inlägget", description: "nånting" },
-    // ]);
-    // await Questions.insertMany([
-    //     { title: "andra inlägget", description: "något annat" },
-    // ]);
     const questions = await Questions.find();
     res.send(questions);
+});
+
+app.get("/questions/:id", async (req, res) => {
+    const question = await Questions.findById(req.params.id);
+    res.send(question);
 });
 
 app.listen(3000, () => {
