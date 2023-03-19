@@ -25,13 +25,13 @@ export default function QuestionPage() {
 
     if (isError) return <div>oops, something went wrong.</div>;
     return (
-        <div className="max-w-4xl mx-auto py-10">
+        <div className="py-10">
             <div className="border-b pb-4 m-4">
                 <h2 className="text-2xl text-gray-700">{question.title}</h2>
                 <p className="text-sm text-gray-600">
                     Asked:{" "}
                     <span className="text-gray-800">
-                        {moment(question.createdAt).startOf("day").fromNow()}
+                        {moment(question.createdAt).startOf("hour").fromNow()}
                     </span>
                 </p>
             </div>

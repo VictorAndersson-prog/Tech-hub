@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 const app = express();
 
 app.use(cors({ origin: "*" }));
+app.use(express.json());
+
 app.get("/", (req, res) => {
     res.send("hej");
 });
@@ -34,6 +36,14 @@ app.get("/questions/:id", async (req, res) => {
     res.send(question);
 });
 
+app.post("/question", async (req, res) => {
+    const question = await Questions.create({
+        title: req.body.title,
+        description: req.body.description,
+    });
+
+    res.send(question);
+});
 app.listen(3000, () => {
     mongoose.connect(
         "mongodb+srv://user:admin@cluster0.sttbdxj.mongodb.net/Techhub?retryWrites=true&w=majority"
